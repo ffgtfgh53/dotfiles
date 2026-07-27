@@ -1,0 +1,16 @@
+[general]
+bars = 6
+sensitivity = 120
+
+[input]
+method = fifo
+source = /tmp/mpd.fifo
+
+[output]
+method = raw
+channels = mono
+mono_option = left
+reverse = 1
+raw_target = /dev/stdout
+data_format = ascii
+ascii_max_range = 8

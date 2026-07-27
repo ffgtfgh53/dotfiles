@@ -1,0 +1,141 @@
+#!/bin/sh
+# =============================================================
+# Script Name: MonitorSetup2
+# Description: Configure 2nd display to mirror / extend / blank
+# Features:
+#   - Pass "mirror", for 2nd display to copy 1st dislay exactly
+#   - Pass "blank" / "none" for blank 2nd display
+#   - Pass "extend" SIDE to extend 2nd display to SIDE of 1st (SIDE: "left", "right", "top", "bottom")
+#   - Pass "presentation" for extra workspace with no padding
+#   - Pass auto to use current config or switch back to only primary when no secondary
+#   - Exit code 0 means need to reload wm (bspc wm -r)
+# =============================================================
+#set -e
+
+mode=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+side=$2
+
+set -- $(xrandr | awk '$2 == "connected" {print $1}')
+monitor_1="$1"
+monitor_2="$2"
+focused=$(bspc query -D -d focused)
+# When only 1 monitor, mons will print the error message
+
+# Set global config options
+bspc wm -o -O "$@"
+
+remove_temp() {
+    # Removes temporary Desktop created when monitor has no desktops
+    # Has no effect if that is the last desktop on the monitor
+    # (shift desktops around first, but before renaming)
+    while
+        bspc desktop Desktop -r 2>/dev/null
+    do :
+    done
+}
+
+NO_POLYBAR="${HOME}/.config/bspwm/src/config/.no_polybar_mon"
+
+init_monitors() {
+    mons -o --primary "$monitor_1"
+
+    bspc monitor "$monitor_1" -d 1 2 3 4 5 6 7 8
+
+    echo "" > $NO_POLYBAR
+}
+
+move_all_to_one() {
+    for i in {1..8}; do
+        bspc desktop $i -m "$monitor_1"
+    done
+
+    remove_temp
+    bspc monitor "$monitor_1" -d 1 2 3 4 5 6 7 8
+}
+
+split_to_both() {
+    for i in {1..4}; do
+        bspc desktop $i -m "$monitor_1"
+    done
+    for i in {5..8}; do
+        bspc desktop $i -m "$monitor_2"
+    done
+
+    remove_temp
+    bspc monitor "$monitor_1" -d 1 2 3 4
+    bspc monitor "$monitor_2" -d 5 6 7 8
+}
+
+start_presentation() {
+    bspc query -m "$monitor_2" -D 9 &>/dev/null \
+    || bspc monitor "$monitor_2" -a 9
+    move_all_to_one
+    bspc desktop 9 -l monocle
+
+    echo "$monitor_2" > $NO_POLYBAR
+}
+
+end_presentation() {
+    bspc desktop 9 -r 2>/dev/null
+    echo "" > $NO_POLYBAR
+}
+
+case $mode in
+    a | auto | '')
+        # Init single monitor setup if no monitors
+        [[ $(bspc query -D --names | wc -l) -lt 8 ]] && init_monitors && exit 0
+        # Set order of monitors
+        bspc wm -o -O "$@"
+        # Do nothing if second monitor is still attached (keep state)
+        [[ -n $2 ]] && exit 1
+        ;& # or else continue with below
+
+    b | n | blank | none )
+        # Do nothing if already single display mode (no reload wm)
+        [[ $(xrandr --listmonitors | awk '$1 == "Monitors:" {print $2}') == "1" ]] && exit 1
+        mons -o --primary "$monitor_1"
+        move_all_to_one
+        end_presentation
+        ;;
+
+    m | mirror )
+        mons -m
+        [[ -z $2 ]] && exit 1
+
+        move_all_to_one
+        end_presentation
+        ;;
+
+    e | extend )
+        if RESULT=$(mons -e $side 2>/dev/null); then
+            [[ -z $2 ]] && echo $RESULT && exit 1
+        else
+            echo "Unknown side \"$side\" (side must be in [left|right|top|bottom])"
+            exit 1
+        fi
+
+        split_to_both
+        end_presentation
+        ;;
+
+
+    p | present | presentation )
+        if RESULT=$(mons -e $side 2>/dev/null); then
+            [[ -z $2 ]] && echo $RESULT && exit 1
+        else
+            echo "Unknown side \"$side\" (side must be in [left|right|top|bottom])"
+            exit 1
+        fi
+
+        move_all_to_one
+        start_presentation
+        ;;
+
+    * )
+        echo "Unknown mode \"$mode\" (mode must be in [Mirror|Extend|Blank|None], default None)"
+esac
+
+# focus back on original desktop, if still exists
+bspc desktop -f $focused &>/dev/null
+
+exit 0

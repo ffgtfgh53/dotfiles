@@ -1,0 +1,12 @@
+* {
+    font: "Terminess Nerd Font Mono Bold 10";
+    background: #1e1e2e;
+    bg-alt: #1e1e2e;
+    background-alt: #1e1e2eE0;
+    foreground: #cdd6f4;
+    selected: #89b4fa;
+    active: #a6e3a1;
+    urgent: #f38ba8;
+
+    img-background: url("~/.config/bspwm/rices/Thinkpad/rofi.webp", width);
+}

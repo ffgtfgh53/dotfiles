@@ -1,0 +1,136 @@
+#  ╔╦╗╦ ╦╔╗╔╔═╗╔╦╗  ╔═╗╔═╗╔╗╔╔═╗╦╔═╗	- Dunst config file for the rices
+#   ║║║ ║║║║╚═╗ ║   ║  ║ ║║║║╠╣ ║║ ╦	- https://github.com/gh0stzk/dotfiles
+#  ═╩╝╚═╝╝╚╝╚═╝ ╩   ╚═╝╚═╝╝╚╝╚  ╩╚═╝	- z0mbi3
+
+[global]
+
+monitor = 0
+follow = mouse
+
+width = (300, 400)
+#height = (0, 200)
+origin = top-right
+offset = (28, 65)
+scale = 0
+
+notification_limit = 5
+indicate_hidden = true
+
+transparency = 9
+corner_radius = 6
+
+gap_size = 4
+separator_height = 1
+separator_color = "#abb2bf"
+
+padding = 15
+horizontal_padding = 15
+text_icon_padding = 0
+
+frame_width = 0
+frame_color = "#89b4fa"
+
+sort = true
+idle_threshold = 0
+
+font = JetBrainsMono NF Medium 9
+line_height = 0
+
+markup = full
+format = "<span size='xx-large' font_desc='Cantarell 9' weight='bold' foreground='#89b4fa'>%a: %s</span>\n%b"
+alignment = center
+vertical_alignment = center
+
+show_age_threshold = 60
+#ellipsize = middle
+ignore_newline = false
+stack_duplicates = true
+hide_duplicate_count = true
+
+show_indicators = true
+
+enable_recursive_icon_lookup = true
+icon_theme = "Gruvbox-Plus-Dark, Adwaita"
+icon_position = left
+min_icon_size = 60
+max_icon_size = 90
+icon_corner_radius = 6
+
+sticky_history = yes
+history_length = 25
+
+dmenu = /usr/bin/rofi -config "$HOME/.config/rofi/notification.rasi" -dmenu -p Action
+browser = /usr/bin/xdg-open
+always_run_script = true
+ignore_dbusclose = false
+
+force_xinerama = false
+
+mouse_left_click = do_action, close_current
+mouse_middle_click = context
+mouse_right_click = close_current
+
+progress_bar = true
+progress_bar_height = 10
+progress_bar_frame_width = 0
+progress_bar_min_width = 125
+progress_bar_max_width = 250
+progress_bar_corner_radius = 5
+
+title = Dunst
+class = Dunst
+
+enable_posix_regex = true
+
+override_pause_level = 30
+
+[notify-send]
+appname = ".*((dunstify)|(notify-send)).*"
+markup = yes
+override_pause_level = 80
+
+[discord]
+#Hacky way to filter for discord
+appname = "^$"
+override_pause_level = 10
+#default_icon = "/usr/share/icons/Arashi/scalable/apps/discord.svg"
+
+[filter_out_tree]
+summary = ".*[tT][rR][eE][eE].*"
+skip_display = true
+history_ignore = true
+
+[filter_out_sh]
+body = ".*sh magnemite.*"
+skip_display = true
+history_ignore = true
+
+[input_method]
+appname = "Input Method"
+set_stack_tag = "Input Method"
+format = "<span size='xx-large' font_desc='Cantarell 9' weight='bold' foreground='#89b4fa'>%s</span>\n%b"
+
+[remove_appname]
+appname = "((ZapZap)|(dunstify)|(notify-send))"
+format = "<span size='xx-large' font_desc='Cantarell 9' weight='bold' foreground='#89b4fa'>%s</span>\n%b"
+
+[history_ignore_system]
+stack_tag = "((brightness)|(volume)(Input Method)"
+history_ignore = true
+
+# Lines below will be replaved by Theme.sh
+
+[urgency_low]
+timeout = 3
+background = "#1e1e2e"
+foreground = "#a6e3a1"
+
+[urgency_normal]
+timeout = 5
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[urgency_critical]
+timeout = 0
+background = "#1e1e2e"
+foreground = "#f38ba8"

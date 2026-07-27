@@ -1,0 +1,56 @@
+#!/bin/sh
+
+# Can be called directly, which will call MonitorSetup and reload bspwm,
+# or can be called from mons, detected from MONS_NUMBER env. variable.
+
+# Call with menu to get interactive menu, else just pass in regular arguments to MonitorSetup
+
+d_blank="󰶐 Blank"
+d_mirror="󰍺 Mirror"
+d_extend="󰍹 Extend"
+d_present="󰹑 Present"
+
+rofi_cmd() {
+    rofi -dmenu \
+        -p "$1" \
+        -mesg "$2" \
+        -markup-rows \
+        -theme "$HOME"/.config/bspwm/src/rofi-themes/MonitorSetup.rasi
+}
+
+main_rofi_menu() {
+    RESULT=$(
+        printf "%s\n%s\n%s\n%s" "$d_blank" "$d_mirror" "$d_extend" "$d_present" \
+            | rofi_cmd "Display projection" "Select mode"
+    ) && case $RESULT in
+        "$d_blank") echo "blank";;
+        "$d_mirror") echo "mirror";;
+        "$d_extend") echo "extend";;
+        "$d_present") echo "present";;
+    esac
+}
+
+side_rofi_menu() {
+    printf "%s\n%s\n%s\n%s" "top" "bottom" "left" "right" \
+        | rofi_cmd "Display projection" "Select direction"
+}
+
+
+if [[ $MONS_NUMBER -gt 1 ]] || [[ -z $@ ]] || [[ $1 == 'menu' ]]; then
+    while RESULT=$(main_rofi_menu); do
+        case $RESULT in
+            extend | present) if SIDE=$(side_rofi_menu); then break; fi;;
+            blank | mirror | *) break;;
+        esac
+    done
+
+    set -- $RESULT $SIDE
+elif [[ $MONS_NUMBER = 1 ]]; then
+    notify-send -i monitor -a "Monitor" "Projection" "Display disconnected"
+fi
+
+if ERROR=$(/home/robert/.config/bspwm/src/MonitorSetup $@); then
+    bspc wm -r
+else
+    [[ -n "$ERROR" ]] && notify-send -i monitor -a "Monitor" "Projection" "$ERROR"
+fi
