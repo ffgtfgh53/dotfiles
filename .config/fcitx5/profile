@@ -1,14 +1,14 @@
 [Groups/0]
 # Group Name
-Name=English-Colemak
+Name=English
 # Layout
-Default Layout=us-colemak
+Default Layout=us
 # Default Input Method
-DefaultIM=keyboard-us-colemak
+DefaultIM=keyboard-us
 
 [Groups/0/Items/0]
 # Name
-Name=keyboard-us-colemak
+Name=keyboard-us
 # Layout
 Layout=
 
@@ -28,20 +28,20 @@ Layout=us
 
 [Groups/2]
 # Group Name
-Name=English
+Name=English-Colemak
 # Layout
-Default Layout=us
+Default Layout=us-colemak
 # Default Input Method
-DefaultIM=keyboard-us
+DefaultIM=keyboard-us-colemak
 
 [Groups/2/Items/0]
 # Name
-Name=keyboard-us
+Name=keyboard-us-colemak
 # Layout
 Layout=
 
 [GroupOrder]
 0=English
-1=Chinese-Pinyin
-2=English-Colemak
+1=English-Colemak
+2=Chinese-Pinyin
 
