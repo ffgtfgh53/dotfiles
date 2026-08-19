@@ -139,7 +139,7 @@ sl_verify="${green}"
 
 # Gtk theme
 gtk_theme="CatppuccinMocha-zk"
-gtk_icons="Arashi"
+gtk_icons="Catpuccin-Mocha"
 gtk_cursor="Qogirr-Dark"
 geany_theme="catppuccin-mocha"
 

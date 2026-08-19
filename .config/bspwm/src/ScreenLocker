@@ -30,7 +30,7 @@ default_lockscreen () {
 
     maim -d 0.3 -u ${TEMP_IMAGE}
     magick $TEMP_IMAGE -blur 5x4 $TEMP_IMAGE
-    i3lock -n --force-clock -i $TEMP_IMAGE -e --indicator \
+    i3lock -n --force-clock -i $TEMP_IMAGE --indicator \
         --radius=30 --ring-width=60 --inside-color=$bg \
         --ring-color=$ring --insidever-color=$verify --ringver-color=$verify \
 		--insidewrong-color=$wrong --ringwrong-color=$wrong --line-uses-inside \
@@ -66,7 +66,7 @@ rice_lockscreen () {
         ;;
     esac
 
-    i3lock -n --force-clock -i $TEMP_IMAGE --scale -e --indicator \
+    i3lock -n --force-clock -i $TEMP_IMAGE --scale --indicator \
         --radius=30 --ring-width=60 --inside-color=$bg \
         --ring-color=$ring --insidever-color=$verify --ringver-color=$verify \
 		--insidewrong-color=$wrong --ringwrong-color=$wrong --line-uses-inside \
