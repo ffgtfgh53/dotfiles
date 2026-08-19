@@ -37,8 +37,11 @@ export SUDO_PROMPT="Deploying root access for %u. Password pls UwU: "
 export BAT_THEME="base16"
 export GPG_TTY=$(tty)
 
-if [ -d "$HOME/.local/bin" ] ;
-  then PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin" ] ; then 
+    PATH="$HOME/.local/bin:$PATH"
+fi
+if [ -d "$HOME/.cargo/bin" ] ; then
+    PATH="$HOME/.cargo/bin:$PATH"
 fi
 
 #  ┬  ┌─┐┌─┐┌┬┐  ┌─┐┌┐┌┌─┐┬┌┐┌┌─┐
