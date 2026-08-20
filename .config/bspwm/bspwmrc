@@ -7,9 +7,8 @@
 #  ██████╔╝███████║██║     ╚███╔███╔╝██║ ╚═╝ ██║██║  ██║╚██████╗
 #  ╚═════╝ ╚══════╝╚═╝      ╚══╝╚══╝ ╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
 # Author:  gh0stzk
-# Repo:    https://github.com/gh0stzk/dotfiles
-# Date:    24.04.2025 20:37:31
-# Copyright (C) 2021-2025 gh0stzk <z0mbi3.zk@protonmail.com>
+# Editor:  ffgtfgh
+# Repo:    https://github.com/ffgtfgh53/dotfiles
 # =============================================================
 
 # Set environment variables
@@ -92,6 +91,7 @@ run clipcatd
 run lxpolkit
 
 # Launch fcitx5
+run fcitx5
 
 # Fix gamma
 [[ $(hostname) == 't495-1' ]] && redshift -x 1>/dev/null && redshift -O 5500 1>/dev/null

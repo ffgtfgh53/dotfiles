@@ -2,27 +2,6 @@
 #	   Thinkpad Theme		#
 #############################
 
-# (Lovelace) colorscheme from Elenapan
-#bg="#1D1F28"
-#fg="#FDFDFD"
-
-#black="#282A36"
-#red="#F37F97"
-#green="#5ADECD"
-#yellow="#F2A272"
-#blue="#8897F4"
-#magenta="#C574DD"
-#cyan="#79E6F3"
-#white="#FDFDFD"
-#blackb="#414458"
-#redb="#FF4971"
-#greenb="#18E3C8"
-#yellowb="#FF8037"
-#blueb="#556FFF"
-#magentab="#B043D1"
-#cyanb="#3FDCEE"
-#whiteb="#BEBEC1"
-
 #Catpuccin-Mocha
 
 rosewater="#f5e0dc"

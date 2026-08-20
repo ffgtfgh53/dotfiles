@@ -1,9 +1,14 @@
 #!/bin/sh
-
-# Can be called directly, which will call MonitorSetup and reload bspwm,
-# or can be called from mons, detected from MONS_NUMBER env. variable.
-
-# Call with menu to get interactive menu, else just pass in regular arguments to MonitorSetup
+#
+# =============================================================
+# Author:  ffgtfgh
+# Repo:    https://github.com/ffgtfgh53/dotfiles
+#
+# AutoMonitorSetup - Setup monitors automatically
+# Info:    Can be called directly, which will call MonitorSetup and reload bspwm,
+#          or can be called from mons, detected from MONS_NUMBER env. variable.
+#
+#          Call with 'menu' to get interactive menu, else pass in regular arguments to MonitorSetup
 
 d_blank="󰶐 Blank"
 d_mirror="󰍺 Mirror"

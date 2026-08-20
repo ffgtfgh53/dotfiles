@@ -1,5 +1,7 @@
 #!/bin/sh
 # =============================================================
+# Author: ffgtfgh
+# Repo: https://github.com/ffgtfgh53/dotfiles
 # Script Name: MonitorSetup2
 # Description: Configure 2nd display to mirror / extend / blank
 # Features:
