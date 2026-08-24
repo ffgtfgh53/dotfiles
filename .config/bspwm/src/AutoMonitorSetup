@@ -41,7 +41,8 @@ side_rofi_menu() {
 }
 
 
-if [[ $MONS_NUMBER -gt 1 ]] || [[ -z $@ ]] || [[ $1 == 'menu' ]]; then
+# conditions: (mons_number -gt 1), (AutoMonitorSetup menu), (no args AND no. monitor > 1)
+if [[ -z $@ ]] && [[ $(xrandr --listmonitors | awk '$1 == "Monitors:" {print $2}') != "1" ]] || [[ $MONS_NUMBER -gt 1 ]] || [[ $1 == 'menu' ]]; then
     while RESULT=$(main_rofi_menu); do
         case $RESULT in
             extend | present) if SIDE=$(side_rofi_menu); then break; fi;;
@@ -50,6 +51,7 @@ if [[ $MONS_NUMBER -gt 1 ]] || [[ -z $@ ]] || [[ $1 == 'menu' ]]; then
     done
 
     set -- $RESULT $SIDE
+
 elif [[ $MONS_NUMBER = 1 ]]; then
     notify-send -i monitor -a "Monitor" "Projection" "Display disconnected"
 fi
