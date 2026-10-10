@@ -10,7 +10,7 @@ DefaultIM=keyboard-us
 # Name
 Name=keyboard-us
 # Layout
-Layout=
+# Layout=
 
 [Groups/1]
 # Group Name
@@ -38,10 +38,10 @@ DefaultIM=keyboard-us-colemak
 # Name
 Name=keyboard-us-colemak
 # Layout
-Layout=
+# Layout=
 
 [GroupOrder]
 0=English
-1=English-Colemak
-2=Chinese-Pinyin
+1=Chinese-Pinyin
+2=English-Colemak
 

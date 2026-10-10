@@ -118,6 +118,10 @@ format = "<span size='xx-large' font_desc='Cantarell 9' weight='bold' foreground
 stack_tag = "((brightness)|(volume)(Input Method)"
 history_ignore = true
 
+[devify]
+appname = "Devify"
+format = "<span size='xx-large' font_desc='Cantarell 9' weight='bold' foreground='#89b4fa'>Device: %s</span>\n%b"
+
 # Lines below will be replaved by Theme.sh
 
 [urgency_low]

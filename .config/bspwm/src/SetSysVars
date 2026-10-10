@@ -53,16 +53,24 @@ setup_system_vars() {
         esac
     done
 
+    temp_path=""
+    for entry in /sys/devices/platform/thinkpad_hwmon/hwmon/*/temp1_input; do
+        temp_path="$entry"
+        break
+    done
+
     # Atomic update of the configuration file
     tmpfile=$(mktemp)
     awk -v net="$primary_net" \
         -v card="$card" \
         -v bat="$battery" \
-        -v adap="$adapter" '
+        -v adap="$adapter" \
+        -v temp="$temp" '
         /^sys_network_interface =/ {$0="sys_network_interface = " net}
         /^sys_graphics_card =/ {$0="sys_graphics_card = " card}
         /^sys_battery =/ {$0="sys_battery = " bat}
         /^sys_adapter =/ {$0="sys_adapter = " adap}
+        /^sys_temp_hwmon_path =/ {$0="sys_temp_hwmon_path = " temp}
         {print}
     ' "$CONFIG_FILE" > "$tmpfile" && mv "$tmpfile" "$CONFIG_FILE"
 }

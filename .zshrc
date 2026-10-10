@@ -90,6 +90,11 @@ if [ "$TERM" = "linux" ]; then
 else
   zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
 fi
+
+# MVT shell completion
+[ -f /home/robert/.mvt-complete.zsh ] && . /home/robert/.mvt-complete.zsh
+
+
 #  ┬ ┬┌─┐┬┌┬┐┬┌┐┌┌─┐  ┌┬┐┌─┐┌┬┐┌─┐
 #  │││├─┤│ │ │││││ ┬   │││ │ │ └─┐
 #  └┴┘┴ ┴┴ ┴ ┴┘└┘└─┘  ─┴┘└─┘ ┴ └─┘
@@ -218,6 +223,9 @@ function trash() {
 alias venv-activate="source .venv/bin/activate"
 
 alias copy="xclip -selection clip"
+
+#thefuck
+eval $(thefuck --alias)
 
 #  ┌─┐┬ ┬┌┬┐┌─┐  ┌─┐┌┬┐┌─┐┬─┐┌┬┐
 #  ├─┤│ │ │ │ │  └─┐ │ ├─┤├┬┘ │
