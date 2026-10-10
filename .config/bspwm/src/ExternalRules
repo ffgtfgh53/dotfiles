@@ -39,6 +39,9 @@ case "$class" in
     pavucontrol)
         result "state=floating center=on"
         ;;
+    krunner)
+        result "state=floating center=on"
+        ;;
     Thunar)
         result "desktop=^2 follow=on"
         ;;

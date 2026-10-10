@@ -62,6 +62,9 @@
         (label :class "keys" :xalign 0 :text "Menu Apps")
         (label :class "keys-alt" :xalign 1 :text "Super + Space Bar"))
       (box :orientation "h" :space-evenly "true"
+        (label :class "keys" :xalign 0 :text "KRunner")
+        (label :class "keys-alt" :xalign 1 :text "Alt + F2"))
+      (box :orientation "h" :space-evenly "true"
         (label :class "keys" :xalign 0 :text "Theme Selector")
         (label :class "keys-alt" :xalign 1 :text "Alt + Space Bar"))
       (box :orientation "h" :space-evenly "true"

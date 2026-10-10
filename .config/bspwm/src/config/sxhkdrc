@@ -25,6 +25,10 @@ super + {_,alt + }Return
 super + @space
 	OpenApps --menu
 
+# KRunner
+alt + F2
+    krunner
+
 # Theme Selector
 alt + @space
 	RiceSelector
