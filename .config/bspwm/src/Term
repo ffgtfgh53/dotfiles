@@ -55,26 +55,28 @@ read -r MY_TERM < "$CFG_TERM"
 case $MY_TERM in
 	"alacritty")
 		case $1 in
-			"--terminal") alacritty ;;
-			"--floating") alacritty --class FloaTerm,FloaTerm ;;
-			"--update") alacritty --hold --class FloaTerm,FloaTerm -e paru -Syu --nocombinedupgrade ;;
-			"--checkupdates") alacritty --hold --class Updating,Updating -e Updates --print-updates ;;
-			"--yazi") alacritty --class FloaTerm,YaziTerm -e yazi ;;
-			"--nvim") alacritty -e nvim ;;
-			"--music") alacritty --class FloaTerm,MusicTerm -e ncmpcpp ;;
-			"--fetch") alacritty --class FloaTerm,FetchTerm -e ~/.local/bin/sysfetch ;;
+			"--terminal") alacritty & ;;
+			"--floating") alacritty --class FloaTerm,FloaTerm & ;;
+			"--update") alacritty --hold --class FloaTerm,FloaTerm -e paru -Syu --nocombinedupgrade & ;;
+			"--checkupdates") alacritty --hold --class Updating,Updating -e Updates --print-updates & ;;
+			"--yazi") alacritty --class FloaTerm,YaziTerm -e yazi & ;;
+			"--nvim") alacritty -e nvim & ;;
+			"--music") alacritty --class FloaTerm,MusicTerm -e ncmpcpp & ;;
+			"--fetch") alacritty --class FloaTerm,FetchTerm -e ~/.local/bin/sysfetch & ;;
 		esac
 		;;
 	"kitty")
 		case $1 in
-			"--terminal") kitty ;;
-			"--floating") kitty --class=FloaTerm ;;
-			"--update") kitty --hold --class=FloaTerm -e paru -Syu --nocombinedupgrade ;;
-			"--checkupdates") kitty --class=Updating -e zsh -c "Updates --print-updates; read -s -k" ;;
-			"--yazi") kitty --hold --name=YaziTerm --class=FloaTerm -e yazi ;;
-			"--nvim") kitty -e nvim ;;
-			"--music") kitty --name=MusicTerm --class=FloaTerm -e ncmpcpp ;;
-			"--fetch") kitty --name=FetchTerm --class=FloaTerm -e ~/.local/bin/sysfetch ;;
+			"--terminal") kitty & ;;
+			"--floating") kitty --class=FloaTerm & ;;
+			"--update") kitty --hold --class=FloaTerm -e paru -Syu --nocombinedupgrade & ;;
+			"--checkupdates") kitty --class=Updating -e zsh -c "Updates --print-updates; read -s -k" & ;;
+			"--yazi") kitty --hold --name=YaziTerm --class=FloaTerm -e yazi & ;;
+			"--nvim") kitty -e nvim & ;;
+			"--music") kitty --name=MusicTerm --class=FloaTerm -e ncmpcpp & ;;
+			"--fetch") kitty --name=FetchTerm --class=FloaTerm -e ~/.local/bin/sysfetch & ;;
 		esac
 	;;
 esac
+
+disown

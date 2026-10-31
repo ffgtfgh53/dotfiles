@@ -67,13 +67,16 @@ case "$1" in
 		;;
 		# Apps
 	--filemanager)
-		thunar
+		thunar &
+		disown
 		;;
 	--browser)
-		firefox
+		firefox &
+		disown
 		;;
 	--editor)
-		geany
+		geany &
+		disown
 		;;
 	--telegram)
 		telegram-desktop
