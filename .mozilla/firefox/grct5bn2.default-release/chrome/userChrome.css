@@ -17,6 +17,8 @@
   --catppuccin-color-base: #1e1e2e;
   --catppuccin-color-mantle: #181825;
   --catppuccin-color-crust: #11111b;
+  --catppuccin-color-mauve: #cba6f7;
+  --catppuccin-color-blue: #89b4fa;
 
   --z0mbi3-bg: var(--catppuccin-color-base);
   --z0mbi3-icon-color: var(--catppuccin-color-text);
@@ -47,6 +49,12 @@
   --toolbar-bg-color: var(--catppuccin-color-surface0) !important;
   --field-bg-color: var(--catppuccin-color-surface1) !important;
   --dropdown-btn-bg-color: var(--catppuccin-color-surface1) !important;
+  --border-color-interactive: var(--catppuccin-color-surface2) !important;
+  --border-color: var(--catppuccin-color-surface2) !important;
+  --button-border-radius: 12px !important;
+  --button-background-color: var(--catppuccin-color-surface0) !important;
+  --button-background-color-menu: transparent !important;
+  --button-background-color-ghost: transparent !important;
   --button-hover-color: var(--catppuccin-color-surface2) !important;
   --lwt-sidebar-background-color: var(--z0mbi3-bg) !important;
   --tab-border-radius: 6.7px !important;
@@ -56,7 +64,18 @@
   ) !important;
   --arrowpanel-border-color: none !important;
   --tabpanel-background-color: transparent !important;
+  --background-color-box: var(--catppuccin-color-surface0) !important;
+  --background-color-box-info: var(--catppuccin-color-surface0) !important;
   --background-color-canvas: var(--z0mbi3-bg) !important;
+  --card-background-color: var(--catppuccin-color-mantle) !important;
+
+  /* Firefox view (Recent Browsing) */
+  --fxview-background-color: var(--catppuccin-color-base) !important;
+  --fxview-background-color-secondary: var(--catppuccin-color-surface1) !important;
+  --fxview-primary-action-background: var(--catppuccin-color-blue) !important;
+  --fxview-text-primary-color: var(--catppuccin-color-text) !important;
+  --input-background-color: var(--catppuccin-color-surface0) !important;
+  --page-nav-button-background-color-selected: var(--catppuccin-color-mauve) !important;
 
   /* Sync internal width with your custom CSS to prevent "underlapping" */
   --tab-min-width: 150px !important;
@@ -66,18 +85,29 @@
   display:none!important; 
 }
 
-body {
-  color: #bac2de;
-}
+@layer default-style {
 
-/* straits times */
+  body {
+    color: #bac2de;
+  }
 
-div.sticky-headline {
-  background-color:  #bac2de;
-}
+  a {
+    color: #89b4fa;
+  }
 
-::selection {
-  background: var(--z0mbi3-tab-selected-bg) !important;
+  a:visited {
+    color: #cba6f7;
+  }
+
+  code {
+    background-color: var(--catppuccin-color-surface0);
+  }
+
+  ::selection {
+    background: var(--z0mbi3-tab-selected-bg) !important;
+    color: #1e1e2e !important;
+  }
+
 }
 
 .toolbarbutton-icon {
@@ -541,7 +571,9 @@ toolbarbutton.bookmark-item:hover,
 menupopup {
   --panel-background: var(--z0mbi3-bg) !important;
   --panel-border-color: none !important;
+  --panel-border-width: 0 !important;
   --panel-color: var(--z0mbi3-icon-color) !important;
+  color-scheme: dark !important;
 }
 
 /* color fg of context menu */
@@ -551,6 +583,6 @@ menupopup > menu[_moz-menuactive="true"],
   > menuitem[_moz-menuactive="true"]
   > .menu-iconic-left
   > .menu-iconic-icon {
-  color: var(--z0mbi3-icon-color) !important;
+  color: var(--z0mbi3-bg) !important;
   background: var(--z0mbi3-tab-selected-bg) !important;
 }
