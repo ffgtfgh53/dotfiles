@@ -5,6 +5,8 @@
  *    ╚═╝╚═╝╩ ╩╚═╝╩╚═╝   ╩ ╩ ╩╚═╝╩ ╩╚═╝	z0mbi3 Fox Firefox Theme
  */
 
+ color-scheme: dark;
+
   --catppuccin-color-text: #cdd6f4;
   --catppuccin-color-subtext1: #bac2de;
   --catppuccin-color-subtext0: #a6adc8;
@@ -25,14 +27,15 @@
   --z0mbi3-nav-toolbar-padding: 8px;
   --z0mbi3-sidebar-bg: var(--z0mbi3-bg);
   --z0mbi3-sidebar-color: var(--catppuccin-color-text);
-  --z0mbi3-tab-border-radius: 0px;
+  --z0mbi3-tab-border-radius: 8px;
+  --z0mbi3-tab-margin-block: 2px;
   --z0mbi3-tab-color: var(--catppuccin-color-text);
   --z0mbi3-tab-font-family: "JetBrainsMono NF", serif;
   --z0mbi3-tab-font-size: 9.5pt;
   --z0mbi3-tab-font-weight: 600;
-  --z0mbi3-tab-height: 42px;
+  --z0mbi3-tab-height: 36px;
   --z0mbi3-tab-pinned-bg: #70c1b3;
-  --z0mbi3-tab-selected-bg: var(--catppuccin-color-surface0);
+  --z0mbi3-tab-selected-bg: #f2cdcd;
   --z0mbi3-tab-soundplaying-bg: #ee6c4d;
   --z0mbi3-urlbar-color: var(--catppuccin-color-text);
   --z0mbi3-urlbar-focused-color: var(--catppuccin-color-text);
@@ -57,7 +60,8 @@
   --button-background-color-ghost: transparent !important;
   --button-hover-color: var(--catppuccin-color-surface2) !important;
   --lwt-sidebar-background-color: var(--z0mbi3-bg) !important;
-  --tab-border-radius: 6.7px !important;
+  --tab-border-radius: var(--z0mbi3-tab-border-radius) !important;
+  --tab-margin-block: var(--z0mbi3-tab-margin-block) !important;
   --lwt-toolbarbutton-icon-fill-attention: #8677cf !important;
   --toolbarbutton-icon-fill-attention: var(
     --lwt-toolbarbutton-icon-fill-attention
@@ -81,33 +85,14 @@
   --tab-min-width: 150px !important;
 }
 
-#fullscr-toggler { /* Prevent top toolbar from appearing when fullscreen */
-  display:none!important; 
+::selection {
+  background: var(--z0mbi3-tab-selected-bg) !important;
+  color: #1e1e2e !important;
 }
 
-@layer default-style {
-
-  body {
-    color: #bac2de;
-  }
-
-  a {
-    color: #89b4fa;
-  }
-
-  a:visited {
-    color: #cba6f7;
-  }
-
-  code {
-    background-color: var(--catppuccin-color-surface0);
-  }
-
-  ::selection {
-    background: var(--z0mbi3-tab-selected-bg) !important;
-    color: #1e1e2e !important;
-  }
-
+/* Prevent top toolbar from appearing when fullscreen */
+#fullscr-toggler { 
+  display: none !important;
 }
 
 .toolbarbutton-icon {
@@ -257,6 +242,7 @@ tab-split-view-wrapper .tabbrowser-tab[selected][fadein]:not([pinned]) {
 .tab-stack,
 .tab-content {
   overflow: hidden !important;
+  /* height: var(--z0mbi3-tab-height); */
 }
 
 hbox.tab-content .tab-icon-image {
@@ -313,6 +299,12 @@ hbox.tab-content .tab-icon-image {
 /* show the secondary label when video is in PiP */
 .tab-secondary-label[pictureinpicture] {
   display: flex;
+}
+
+.tab-group-label {
+  --tab-group-label-padding: 10px !important;
+  --tab-group-label-height: calc(var(--z0mbi3-tab-height) - var(--z0mbi3-tab-margin-block)) !important;
+  border-radius: var(--z0mbi3-tab-border-radius) !important;
 }
 
 /**************************************************/
