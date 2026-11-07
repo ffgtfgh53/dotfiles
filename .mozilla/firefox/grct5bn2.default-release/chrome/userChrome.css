@@ -19,8 +19,19 @@
   --catppuccin-color-base: #1e1e2e;
   --catppuccin-color-mantle: #181825;
   --catppuccin-color-crust: #11111b;
+  
+  --catppuccin-color-pink: #f5c2e7;
   --catppuccin-color-mauve: #cba6f7;
+  --catppuccin-color-red: #f38ba8;
+  --catppuccin-color-maroon: #eba0ac;
+  --catppuccin-color-peach: #fab387;
+  --catppuccin-color-yellow: #f9e2af;
+  --catppuccin-color-green: #a6e3a1;
+  --catppuccin-color-teal: #94e2d5;
+  --catppuccin-color-sky: #89dceb;
+  --catppuccin-color-sapphire: #74c7ec;
   --catppuccin-color-blue: #89b4fa;
+  --catppuccin-color-lavender: #b4befe;
 
   --z0mbi3-bg: var(--catppuccin-color-base);
   --z0mbi3-icon-color: var(--catppuccin-color-text);
@@ -80,6 +91,70 @@
   --fxview-text-primary-color: var(--catppuccin-color-text) !important;
   --input-background-color: var(--catppuccin-color-surface0) !important;
   --page-nav-button-background-color-selected: var(--catppuccin-color-mauve) !important;
+
+  /* Tab group colors */
+  --tab-group-blue: var(--catppuccin-color-blue) !important;
+  --tab-group-blue-invert: var(--catppuccin-color-base) !important;
+  --tab-group-blue-pale: var(--catppuccin-color-blue) !important;
+  --tab-group-blue-text: var(--catppuccin-color-base) !important;
+  --tab-group-blue-text-invert: var(--catppuccin-color-blue) !important;
+  --tab-group-blue-hover: var(--catppuccin-color-blue) !important;
+
+  --tab-group-purple: var(--catppuccin-color-mauve) !important;
+  --tab-group-purple-invert: var(--catppuccin-color-base) !important;
+  --tab-group-purple-pale: var(--catppuccin-color-mauve) !important;
+  --tab-group-purple-text: var(--catppuccin-color-base) !important;
+  --tab-group-purple-text-invert: var(--catppuccin-color-mauve) !important;
+  --tab-group-purple-hover: var(--catppuccin-color-mauve) !important;
+
+  --tab-group-cyan: var(--catppuccin-color-teal) !important;
+  --tab-group-cyan-invert: var(--catppuccin-color-base) !important;
+  --tab-group-cyan-pale: var(--catppuccin-color-teal) !important;
+  --tab-group-cyan-text: var(--catppuccin-color-base) !important;
+  --tab-group-cyan-text-invert: var(--catppuccin-color-teal) !important;
+  --tab-group-cyan-hover: var(--catppuccin-color-teal) !important;
+
+  --tab-group-orange: var(--catppuccin-color-peach) !important;
+  --tab-group-orange-invert: var(--catppuccin-color-base) !important;
+  --tab-group-orange-pale: var(--catppuccin-color-peach) !important;
+  --tab-group-orange-text: var(--catppuccin-color-base) !important;
+  --tab-group-orange-text-invert: var(--catppuccin-color-peach) !important;
+  --tab-group-orange-hover: var(--catppuccin-color-peach) !important;
+
+  --tab-group-yellow: var(--catppuccin-color-yellow) !important;
+  --tab-group-yellow-invert: var(--catppuccin-color-base) !important;
+  --tab-group-yellow-pale: var(--catppuccin-color-yellow) !important;
+  --tab-group-yellow-text: var(--catppuccin-color-base) !important;
+  --tab-group-yellow-text-invert: var(--catppuccin-color-yellow) !important;
+  --tab-group-yellow-hover: var(--catppuccin-color-yellow) !important;
+
+  --tab-group-pink: var(--catppuccin-color-pink) !important;
+  --tab-group-pink-invert: var(--catppuccin-color-base) !important;
+  --tab-group-pink-pale: var(--catppuccin-color-pink) !important;
+  --tab-group-pink-text: var(--catppuccin-color-base) !important;
+  --tab-group-pink-text-invert: var(--catppuccin-color-pink) !important;
+  --tab-group-pink-hover: var(--catppuccin-color-pink) !important;
+
+  --tab-group-green: var(--catppuccin-color-green) !important;
+  --tab-group-green-invert: var(--catppuccin-color-base) !important;
+  --tab-group-green-pale: var(--catppuccin-color-green) !important;
+  --tab-group-green-text: var(--catppuccin-color-base) !important;
+  --tab-group-green-text-invert: var(--catppuccin-color-green) !important;
+  --tab-group-green-hover: var(--catppuccin-color-green) !important;
+
+  --tab-group-gray: var(--catppuccin-color-subtext0) !important;
+  --tab-group-gray-invert: var(--catppuccin-color-base) !important;
+  --tab-group-gray-pale: var(--catppuccin-color-subtext0) !important;
+  --tab-group-gray-text: var(--catppuccin-color-base) !important;
+  --tab-group-gray-text-invert: var(--catppuccin-color-subtext0) !important;
+  --tab-group-gray-hover: var(--catppuccin-color-subtext0) !important;
+
+  --tab-group-red: var(--catppuccin-color-red) !important;
+  --tab-group-red-invert: var(--catppuccin-color-base) !important;
+  --tab-group-red-pale: var(--catppuccin-color-red) !important;
+  --tab-group-red-text: var(--catppuccin-color-base) !important;
+  --tab-group-red-text-invert: var(--catppuccin-color-red) !important;
+  --tab-group-red-hover: var(--catppuccin-color-red) !important;
 
   /* Sync internal width with your custom CSS to prevent "underlapping" */
   --tab-min-width: 150px !important;
